@@ -1,0 +1,49 @@
+workflows:
+  ios-build:
+    name: Rome Tours iOS
+    max_build_duration: 60
+    environment:
+      node: 20.11.0
+      xcode: latest
+      cocoapods: default
+    scripts:
+      - name: Install dependencies
+        script: npm install
+
+      - name: Expo prebuild
+        script: npx expo prebuild --platform ios --clean
+
+      - name: Install CocoaPods
+        script: |
+          cd ios
+          pod install
+
+      - name: Build iOS
+        script: |
+          xcodebuild \
+            -workspace ios/RomeTours.xcworkspace \
+            -scheme RomeTours \
+            -configuration Release \
+            -archivePath build/RomeTours.xcarchive \
+            -sdk iphoneos \
+            archive
+
+      - name: Export IPA
+        script: |
+          xcodebuild \
+            -exportArchive \
+            -archivePath build/RomeTours.xcarchive \
+            -exportOptionsPlist ios/ExportOptions.plist \
+            -exportPath build/output
+
+    artifacts:
+      - build/output/*.ipa
+      - build/output/*.app
+
+    publishing:
+      email:
+        recipients:
+          - nickdavies100@gmail.com
+        notify:
+          success: true
+          failure: true
