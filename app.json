@@ -30,13 +30,7 @@
       "permissions": ["ACCESS_FINE_LOCATION"]
     },
     "plugins": [
-      "expo-location",
-      [
-        "react-native-maps",
-        {
-          "useGoogleMapsOnAndroid": false
-        }
-      ]
+      "expo-location"
     ],
     "extra": {
       "eas": {
