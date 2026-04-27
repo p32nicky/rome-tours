@@ -4,38 +4,20 @@
     "slug": "rome-tours",
     "version": "1.0.0",
     "orientation": "portrait",
-    "icon": "./assets/icon.png",
     "userInterfaceStyle": "automatic",
-    "splash": {
-      "image": "./assets/splash.png",
-      "resizeMode": "contain",
-      "backgroundColor": "#C8102E"
-    },
     "ios": {
       "bundleIdentifier": "com.yourname.rometours",
       "supportsTablet": false,
       "infoPlist": {
         "NSLocationWhenInUseUsageDescription": "Rome Tours uses your location to show tours near you on the map.",
         "NSLocationAlwaysUsageDescription": "Rome Tours uses your location to show tours near you."
-      },
-      "config": {
-        "googleMapsApiKey": ""
       }
     },
     "android": {
-      "adaptiveIcon": {
-        "foregroundImage": "./assets/adaptive-icon.png",
-        "backgroundColor": "#C8102E"
-      },
       "permissions": ["ACCESS_FINE_LOCATION"]
     },
     "plugins": [
       "expo-location"
-    ],
-    "extra": {
-      "eas": {
-        "projectId": "YOUR_EAS_PROJECT_ID"
-      }
-    }
+    ]
   }
 }
