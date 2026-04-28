@@ -6,12 +6,15 @@ workflows:
       node: 20.11.0
       xcode: latest
       cocoapods: default
+      ios_signing:
+        distribution_type: ad_hoc
+        bundle_identifier: com.yourname.rometours
     scripts:
       - name: Install dependencies
         script: npm install --legacy-peer-deps
 
       - name: Expo prebuild
-        script: npx expo prebuild --platform ios --clean
+        script: npx expo prebuild --platform ios --clean --no-install
 
       - name: Install CocoaPods
         script: |
@@ -26,6 +29,9 @@ workflows:
             -configuration Release \
             -archivePath build/RomeTours.xcarchive \
             -sdk iphoneos \
+            -allowProvisioningUpdates \
+            CODE_SIGN_STYLE=Automatic \
+            DEVELOPMENT_TEAM=$CM_TEAM_ID \
             archive
 
       - name: Export IPA
@@ -38,7 +44,6 @@ workflows:
 
     artifacts:
       - build/output/*.ipa
-      - build/output/*.app
 
     publishing:
       email:
