@@ -7,7 +7,7 @@ workflows:
       xcode: latest
       cocoapods: default
       ios_signing:
-        distribution_type: development
+        distribution_type: app_store
         bundle_identifier: com.p32nicky.rometoursguide
     scripts:
       - name: Install dependencies
@@ -40,7 +40,8 @@ workflows:
             -exportArchive \
             -archivePath build/RomeTours.xcarchive \
             -exportOptionsPlist ios/ExportOptions.plist \
-            -exportPath build/output
+            -exportPath build/output \
+            -allowProvisioningUpdates
 
     artifacts:
       - build/output/*.ipa
