@@ -6,7 +6,7 @@
     "orientation": "portrait",
     "userInterfaceStyle": "automatic",
     "ios": {
-      "bundleIdentifier": "com.yourname.rometours",
+      "bundleIdentifier": "com.nickdavies.rometours",
       "supportsTablet": false,
       "infoPlist": {
         "NSLocationWhenInUseUsageDescription": "Rome Tours uses your location to show tours near you on the map.",
