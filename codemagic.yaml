@@ -7,7 +7,7 @@ workflows:
       xcode: latest
       cocoapods: default
       ios_signing:
-        distribution_type: ad_hoc
+        distribution_type: development
         bundle_identifier: com.p32nicky.rometoursguide
     scripts:
       - name: Install dependencies
